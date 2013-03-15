@@ -1,0 +1,16 @@
+
+<form action="/ingredients" method="post">
+  <label for="ingredient_name">Ingredient</label>
+  <input type="text" id="ingredients" name="ingredient[][name]"/>
+  <label for="ingredient_amount">Amount</label>
+  <input type="text" id="ingredients" name="ingredient[][amount]"/>
+
+<%#=select_tag(:recipe, :recipe_id)%>
+<%#= options_for_select([])
+  <option value="<%XXXX"%>"> <%#=RECIPE NAME%> </option>
+</select>
+
+<br>
+<input name="commit" type="submit" value="Create Ingredient"/>
+
+</form>

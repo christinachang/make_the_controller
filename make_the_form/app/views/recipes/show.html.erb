@@ -4,13 +4,18 @@
   <b>Name:</b>
   <%= @recipe.name %>
 </p>
+
+<p>
+  <b>Description:</b>
+  <%= @recipe.description %>
+</p>
+
 <p>
   <b>Ingredients:</b>
   <br>
 
   <% @recipe.ingredients.each_with_index do |ingredient, index| %>
-    <%= index + 1 %>) <%= ingredient.amount %>
-    &nbsp;
+    <%= index + 1 %>)<%= ingredient.amount %>
     <%= ingredient.name %>
     <br>
   <% end %>

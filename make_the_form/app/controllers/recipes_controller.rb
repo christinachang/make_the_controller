@@ -11,14 +11,16 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new()
     @recipe.name = params[:recipe][:name]
 
-    @recipe.description = params[:description]
+    @recipe.description = params[:recipe][:description]
 
-    params[:ingredients].each do |ingredient|
-      ingredient = Ingredient.new
-      ingredient[:name] = ingredient.name
-      ingredient[:amount] = ingredient.amount
-
-      @recipe.ingredients << ingredient
+    params[:recipe][:ingredients].each do |ingredient_values|
+      @recipe.ingredients.build(ingredient_values)
+      # ingredient = Ingredient.new
+      # item.each do |ingredient|
+      #   ingredient.name = ingredient[:name]
+      #   ingredient.amount = ingredient[:amount]
+      # end
+      # @recipe.ingredients << ingredient
     end
 
     if @recipe.save
@@ -27,4 +29,9 @@ class RecipesController < ApplicationController
       render action: "new"
     end
   end
+
+  def index
+    @recipes = Recipe.all
+  end
+
 end
